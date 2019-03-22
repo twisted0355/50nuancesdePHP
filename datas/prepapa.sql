@@ -306,7 +306,9 @@ On veut séléctioner le 'thelogin' de tous les 'user', en sélectionnant
 aussi 'theurl' de la table 'images' si il y en a une, en sélectionnant
 aussi 'thename' de la table 'permission'.
 */
-SELECT u.thelogin FROM * user
+SELECT user.thelogin, images.theurl, permission.thename FROM user
+JOIN images ON user.iduser = images.user_iduser
+JOIN permission ON user.permission_idpermission = permission.idpermission;
 
 
 
