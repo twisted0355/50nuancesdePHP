@@ -306,19 +306,17 @@ On veut séléctioner le 'thelogin' de tous les 'user', en sélectionnant
 aussi 'theurl' de la table 'images' si il y en a une, en sélectionnant
 aussi 'thename' de la table 'permission'.
 */
-SELECT user.thelogin, images.theurl, permission.thename FROM user
-JOIN images ON user.iduser = images.user_iduser
-JOIN permission ON user.permission_idpermission = permission.idpermission;
-
+SELECT user.thelogin, images.theurl, permission.thename, 
+GROUP_CONTACT(article.idarticle) AS idarticle, GROUP_CONTACT(article.thetitle SEPARATOR'|||') AS thetitle
+FROM user
+LEFT JOIN images ON user.iduser = images.user_iduser
+INNER JOIN permission ON user.permission_idpermission = permission.idpermission
+LEFT JOIN article on article.user_iduser = user.iduser
+GROUP BY user.iduser;
 
 
 /*
-On veut séléctioner le 'thelogin' de tous les 'user', en sélectionnant
-aussi 'theurl' de la table 'images' si il y en a une, en sélectionnant
-aussi 'thename' de la table 'permission'.
-
 On va rajouter le champs 'idarticle' et 'thetitle' pour chaque auteur, 
 en gardant une ligne par 'user', on garde l''user' même si il n'a pas d'article
-
 */
     
