@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>ici votre titre</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="view/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
     <meta name="author" content="">
 
     <!-- Custom styles for this template -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="view/css/clean-blog.min.css" rel="stylesheet">
 
 </head>
 
@@ -68,7 +68,7 @@
                 <div class="fil_ariane row">
                     <!-- changer par function php -->
                     <h4>Afficher les rubriques par:</h4>
-                    <form class="col-lg-6" action="rubNews.html.php" method="POST"><!-- start form -->
+                    <form class="col-lg-6" action="#" method="POST"><!-- start form -->
                         <select name="nav-rubrique" size="1"><!-- start select -->
                             <?php
                             //Création d'un tableau contenant les noms de catégories
@@ -85,11 +85,14 @@
                             }
                             ?>
                         </select> <!-- end select -->
-                        <button type="submit" onclick="btnFix()">Chercher</button>
+                        <button type="submit">Chercher</button>
                     </form><!-- end form -->
                     <?php afficheArticle();?>
+                    
+                    <!-- Récupération des données MYSQL -->
 
-                    <?php
+    
+                    <?php // function affichage d'articles par catégorie
                     function afficheArticle(){
                         if (isset($_POST['nav-rubrique'])) {
                             $rubrique = $_POST['nav-rubrique'];
@@ -172,7 +175,7 @@
       </div>
   </div>
 </footer>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script> 
+<script src="view/js/jquery.min.js"></script>
+<script src="view/js/bootstrap.bundle.min.js"></script> 
 </body>
 </html>
